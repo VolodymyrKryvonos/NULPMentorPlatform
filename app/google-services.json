@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "27592702441",
+    "project_id": "nulp-mentor",
+    "storage_bucket": "nulp-mentor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27592702441:android:8caa9fc8c6030731497378",
+        "android_client_info": {
+          "package_name": "com.nulp.mentor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27592702441-rsk5g50u7f80qqprfovptre6js0jei8q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nulp.mentor",
+            "certificate_hash": "c74cf40c7051d8ac2604976bae5e4d8ed16af584"
+          }
+        },
+        {
+          "client_id": "27592702441-qansg6gnc19enrisf6928vube3v844t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5J2aInGGDonw254t8ENxtKkq7C10k_Ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27592702441-qansg6gnc19enrisf6928vube3v844t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
