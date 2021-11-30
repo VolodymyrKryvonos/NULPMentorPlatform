@@ -15,14 +15,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nulp.mentor.common.PrefService
+import com.nulp.mentor.presentation.account.AccountScreen
+import com.nulp.mentor.presentation.account.add_subject.AddSubjectScreen
 import com.nulp.mentor.presentation.common.BottomNavItem
 import com.nulp.mentor.presentation.common.BottomNavigationBar
+import com.nulp.mentor.presentation.find_mentor.FindMentorScreen
 import com.nulp.mentor.presentation.home_screen.HomeScreen
-import com.nulp.mentor.presentation.theme.NULPMentorPlatformTheme
 import com.nulp.mentor.presentation.login_screen.SignInScreen
-import com.nulp.mentor.presentation.main_screen.ChatScreen
-import com.nulp.mentor.presentation.main_screen.SettingsScreen
+import com.nulp.mentor.presentation.notifications_screen.NotificationScreen
 import com.nulp.mentor.presentation.register_screen.SignUpScreen
+import com.nulp.mentor.presentation.theme.NULPMentorPlatformTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -78,7 +80,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = if (prefService.isLoggedIn()) {
                             Screen.HomeScreen.route
                         } else {
-                            Screen.RegisterScreenNavigation.route
+                            Screen.LoginScreenNavigation.route
                         }
                     ) {
                         composable(route = Screen.LoginScreenNavigation.route) {
@@ -88,14 +90,21 @@ class MainActivity : ComponentActivity() {
                             SignUpScreen(navController)
                         }
                         composable(route = Screen.HomeScreen.route) {
-                            Log.e("HomeScreen: ", route?:"432")
+                            Log.e("HomeScreen: ", route ?: "432")
                             HomeScreen(navController)
                         }
                         composable(route = Screen.NotificationScreen.route) {
-                            ChatScreen()
+                            NotificationScreen(navController)
                         }
                         composable(route = Screen.AccountScreen.route) {
-                            SettingsScreen()
+                            AccountScreen(navController = navController, prefService = prefService)
+                        }
+
+                        composable(route = Screen.AddSubjectScreen.route) {
+                            AddSubjectScreen(navController = navController)
+                        }
+                        composable(route = Screen.FindMentorScreen.route) {
+                            FindMentorScreen(navController = navController)
                         }
                     }
                 }

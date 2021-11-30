@@ -47,8 +47,8 @@ data class UserDto(
             registerDate = registerDate,
             rate = rate,
             appeals = appeals,
-            subjects = subjects,
-            mentees = mentees.map { toUser() },
+            subjects = subjects.map { it.toSubject() },
+            mentees = mentees.map { it.toUser() },
             comments = comments,
         )
     }

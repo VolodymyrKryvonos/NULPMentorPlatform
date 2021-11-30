@@ -1,8 +1,6 @@
 package com.nulp.mentor.domain.use_case.auth
 
 import com.nulp.mentor.common.Resource
-import com.nulp.mentor.data.remote.dto.UserDto
-import com.nulp.mentor.domain.model.Mentor
 import com.nulp.mentor.domain.model.User
 import com.nulp.mentor.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
@@ -19,17 +17,19 @@ class LoginUseCase @Inject constructor(
             emit(Resource.Loading<User>())
             val user = repository.login(pass, email, token)
             emit(Resource.Success<User>(user.toUser()))
-        } catch(e: HttpException) {
-            when (e.code()){
-                403->{
+        } catch (e: HttpException) {
+            when (e.code()) {
+                403 -> {
                     emit(Resource.Error<User>("Невірно введений емейл або пароль!"))
                 }
-                else->{
-                    emit(Resource.Error<User>(e.localizedMessage ?: "An unexpected error occured"))
+                else -> {
+                    emit(Resource.Error<User>(e.localizedMessage ?: "Щось пішло не так"))
                 }
             }
-        } catch(e: IOException) {
-            emit(Resource.Error<User>("Couldn't reach server. Check your internet connection."))
+        } catch (e: IOException) {
+            emit(Resource.Error<User>("Перевірте, будь ласка, Інтернет-з'єднання."))
+        } catch (e: Exception) {
+            emit(Resource.Error<User>(e.localizedMessage ?: "Щось пішло не так"))
         }
     }
 }

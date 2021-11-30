@@ -3,13 +3,10 @@ package com.nulp.mentor.presentation.theme
 import androidx.compose.material.Typography
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.nulp.mentor.R
 
 
 // Set of Material typography styles to start with
@@ -52,5 +49,10 @@ val h3 = TextStyle(
 
 val errorTypo = TextStyle(
     color = Error,
+    fontSize = 16.sp
+)
+
+val successTypo = TextStyle(
+    color = Success,
     fontSize = 16.sp
 )

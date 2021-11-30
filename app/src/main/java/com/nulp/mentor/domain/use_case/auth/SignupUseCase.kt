@@ -1,7 +1,6 @@
 package com.nulp.mentor.domain.use_case.auth
 
 import com.nulp.mentor.common.Resource
-import com.nulp.mentor.data.remote.dto.UserDto
 import com.nulp.mentor.data.remote.request_body.SignupBody
 import com.nulp.mentor.domain.model.User
 import com.nulp.mentor.domain.repository.AuthRepository
@@ -17,10 +16,12 @@ class SignupUseCase @Inject constructor(private val repository: AuthRepository) 
             emit(Resource.Loading<User>())
             val user = repository.signup(signupBody)
             emit(Resource.Success<User>(user.toUser()))
-        } catch(e: HttpException) {
-            emit(Resource.Error<User>(e.localizedMessage ?: "An unexpected error occured"))
-        } catch(e: IOException) {
+        } catch (e: HttpException) {
+            emit(Resource.Error<User>(e.localizedMessage ?: "Щось пішло не так"))
+        } catch (e: IOException) {
             emit(Resource.Error<User>("Перевірте, будь ласка, Інтернет-з'єднання."))
+        } catch (e: Exception) {
+            emit(Resource.Error<User>(e.localizedMessage ?: "Щось пішло не так"))
         }
     }
 }

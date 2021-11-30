@@ -14,4 +14,11 @@ data class SubjectDto(
         name = name,
         course = course
     )
+
+    fun toSubjectWithMentors() = Subject(
+        id = id,
+        name = name,
+        course = course,
+        mentors = mentors.map { it.toMentor() }
+    )
 }

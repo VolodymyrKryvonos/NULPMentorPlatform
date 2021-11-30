@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Labs/NULPMentorPlatform/app/src/main/res/drawable/ic_cross.xml" value="0.25435897435897437" />
+        <entry key="..\:/Labs/NULPMentorPlatform/app/src/main/res/drawable/ic_incoming_notification.xml" value="0.25435897435897437" />
         <entry key="..\:/Labs/NULPMentorPlatform/app/src/main/res/drawable/ic_mentor.xml" value="0.1" />
+        <entry key="..\:/Labs/NULPMentorPlatform/app/src/main/res/drawable/ic_tick.xml" value="0.25435897435897437" />
       </map>
     </option>
   </component>

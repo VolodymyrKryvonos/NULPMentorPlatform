@@ -1,17 +1,15 @@
 package com.nulp.mentor.presentation.home_screen.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -32,7 +30,7 @@ fun BestMentorsListItem(
         shape = RoundedCornerShape(10),
         modifier = Modifier
             .width(185.dp)
-            .height(260.dp)
+            .height(240.dp)
             .padding(all = 5.dp),
         onClick = { onItemClick(bestMentor) },
         elevation = 5.dp
@@ -59,7 +57,7 @@ fun BestMentorsListItem(
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
             Text(
-                text = "${bestMentor.mentor.mentees.size} підопічнй(их)",
+                text = "${bestMentor.mentor.mentees.size} підопічний(их)",
                 fontSize = 12.sp,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )

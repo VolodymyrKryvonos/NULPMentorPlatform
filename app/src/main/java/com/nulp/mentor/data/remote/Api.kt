@@ -2,10 +2,8 @@ package com.nulp.mentor.data.remote
 
 import com.nulp.mentor.data.remote.dto.*
 import com.nulp.mentor.data.remote.request_body.*
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.Response
+import retrofit2.http.*
 
 interface Api {
 
@@ -28,10 +26,13 @@ interface Api {
     suspend fun getSubjects(): List<SubjectDto>
 
     @POST("/subscribe")
-    suspend fun subscribeOnSubject(@Body subscribeOnSubjectBody: SubscribeOnSubjectBody):Void
+    suspend fun subscribeOnSubject(@Body subscribeOnSubjectBody: SubscribeOnSubjectBody): Response<Void>
 
     @GET("/applications/{mentorId}")
-    suspend fun getMentorsApplications(@Path("mentorId") mentorId: Int):List<ApplicationDto>
+    suspend fun getMentorsApplications(@Path("mentorId") mentorId: Int): List<ApplicationDto>
+
+    @POST("/applications")
+    suspend fun getApplications(@Body ids: List<Int>): List<ApplicationData>
 
     @POST("/makeAnApplication")
     suspend fun makeAnApplication(@Body makeApplicationBody: MakeApplicationBody): Void
@@ -39,15 +40,12 @@ interface Api {
     @POST("/replyOnApplication")
     suspend fun replyOnApplication(@Body replyOnApplicationBody: ReplyOnApplicationBody): Void
 
-    @POST("/makeMentorRequest")
-    suspend fun makeMentorRequest(@Body mentorRequestBody: MentorRequestBody): Void
-
-    @POST("/cancelMentorRequest")
-    suspend fun cancelMentorRequest(@Body cancelRequest: CancelRequest): Void
-
-    @POST("/mentorReplyOnRequest")
-    suspend fun mentorReplyOnRequest(@Body mentorReplyBody: MentorReplyBody): Void
+    @GET("/mentor/{mentorId}")
+    suspend fun getMentor(@Path("mentorId") mentorId: Int): UserDto
 
     @GET("/bestMentors")
     suspend fun getBestMentors(): List<BestMentorDto>
+
+    @PUT("/becomeMentor/{mentorId}")
+    suspend fun becomeMentor(@Path("mentorId") mentorId: Int): UserDto
 }

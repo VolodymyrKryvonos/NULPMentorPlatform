@@ -46,6 +46,7 @@ fun SignInScreen(
             return@OnCompleteListener
         }
         // Get new FCM registration token
+        Log.e("TOKEN", token)
         token = task.result?:""
     })
 

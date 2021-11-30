@@ -39,7 +39,6 @@ import com.nulp.mentor.presentation.Screen
 import com.nulp.mentor.presentation.common.SnackbarError
 import com.nulp.mentor.presentation.theme.ColorPrimary
 import com.nulp.mentor.presentation.theme.Typography
-import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun SignUpScreen(
